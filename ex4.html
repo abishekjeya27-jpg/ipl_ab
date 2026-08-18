@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Portal - Registration</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #e3f2fd, #f5f5f5);
+            min-height: 100vh;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1565c0;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #1565c0;
+            border-bottom: 2px solid #1565c0;
+            padding-bottom: 8px;
+            margin: 25px 0 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #333;
+        }
+
+        label span {
+            color: red;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #1565c0;
+            box-shadow: 0 0 4px rgba(21, 101, 192, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .error {
+            color: #d32f2f;
+            font-size: 13px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .input-error {
+            border: 2px solid #d32f2f !important;
+            background-color: #fff5f5;
+        }
+
+        .input-success {
+            border: 2px solid #2e7d32 !important;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 25px;
+            margin-top: 10px;
+        }
+
+        .radio-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .radio-group input {
+            width: auto;
+        }
+
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .checkbox input {
+            width: auto;
+        }
+
+        .checkbox label {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            background: #1565c0;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0d47a1;
+        }
+
+        #successMessage {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #2e7d32;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                padding: 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Job Portal Registration</h1>
+    <p class="subtitle">Create your account to find your dream job</p>
+
+    <form id="registrationForm" novalidate>
+
+        <!-- PERSONAL INFORMATION -->
+
+        <h2 class="section-title">Personal Information</h2>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label for="firstName">
+                    First Name <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    placeholder="Enter first name"
+                >
+
+                <div class="error" id="firstNameError"></div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="lastName">
+                    Last Name <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    placeholder="Enter last name"
+                >
+
+                <div class="error" id="lastNameError"></div>
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label for="email">
+                    Email Address <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    placeholder="example@gmail.com"
+                >
+
+                <div class="error" id="emailError"></div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="phone">
+                    Mobile Number <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="phone"
+                    name="phone"
+                    placeholder="10 digit mobile number"
+                    maxlength="10"
+                >
+
+                <div class="error" id="phoneError"></div>
+            </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label for="dob">
+                    Date of Birth <span>*</span>
+                </label>
+
+                <input
+                    type="date"
+                    id="dob"
+                    name="dob"
+                >
+
+                <div class="error" id="dobError"></div>
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Gender <span>*</span>
+                </label>
+
+                <div class="radio-group">
+
+                    <label>
+                        <input type="radio" name="gender" value="Male">
+                        Male
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender" value="Female">
+                        Female
+                    </label>
+
+                    <label>
+                        <input type="radio" name="gender" value="Other">
+                        Other
+                    </label>
+
+                </div>
+
+                <div class="error" id="genderError"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EDUCATION -->
+
+        <h2 class="section-title">Education & Career</h2>
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="qualification">
+                    Highest Qualification <span>*</span>
+                </label>
+
+                <select id="qualification" name="qualification">
+
+                    <option value="">-- Select Qualification --</option>
+
+                    <option value="10th">
+                        10th
+                    </option>
+
+                    <option value="12th">
+                        12th
+                    </option>
+
+                    <option value="Diploma">
+                        Diploma
+                    </option>
+
+                    <option value="BCA">
+                        BCA
+                    </option>
+
+                    <option value="BTech">
+                        B.Tech
+                    </option>
+
+                    <option value="BSc">
+                        B.Sc
+                    </option>
+
+                    <option value="BCom">
+                        B.Com
+                    </option>
+
+                    <option value="BA">
+                        BA
+                    </option>
+
+                    <option value="MCA">
+                        MCA
+                    </option>
+
+                    <option value="MTech">
+                        M.Tech
+                    </option>
+
+                    <option value="MBA">
+                        MBA
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+                <div class="error" id="qualificationError"></div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="experience">
+                    Experience <span>*</span>
+                </label>
+
+                <select id="experience" name="experience">
+
+                    <option value="">
+                        -- Select Experience --
+                    </option>
+
+                    <option value="Fresher">
+                        Fresher
+                    </option>
+
+                    <option value="1">
+                        1 Year
+                    </option>
+
+                    <option value="2">
+                        2 Years
+                    </option>
+
+                    <option value="3">
+                        3 Years
+                    </option>
+
+                    <option value="4">
+                        4 Years
+                    </option>
+
+                    <option value="5+">
+                        5+ Years
+                    </option>
+
+                </select>
+
+                <div class="error" id="experienceError"></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="skills">
+                Skills <span>*</span>
+            </label>
+
+            <textarea
+                id="skills"
+                name="skills"
+                placeholder="Example: HTML, CSS, JavaScript, Java, Python"
+            ></textarea>
+
+            <div class="error" id="skillsError"></div>
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="resume">
+                Upload Resume <span>*</span>
+            </label>
+
+            <input
+                type="file"
+                id="resume"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+            >
+
+            <div class="error" id="resumeError"></div>
+
+        </div>
+
+
+        <!-- ACCOUNT INFORMATION -->
+
+        <h2 class="section-title">Account Information</h2>
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password <span>*</span>
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter password"
+                >
+
+                <div class="error" id="passwordError"></div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="confirmPassword">
+                    Confirm Password <span>*</span>
+                </label>
+
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirm password"
+                >
+
+                <div class="error" id="confirmPasswordError"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TERMS -->
+
+        <div class="checkbox">
+
+            <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+            >
+
+            <label for="terms">
+                I agree to the Terms and Conditions <span>*</span>
+            </label>
+
+        </div>
+
+        <div class="error" id="termsError"></div>
+
+
+        <button type="submit">
+            Register
+        </button>
+
+
+        <div id="successMessage">
+            Registration successful! Your job portal account has been created.
+        </div>
+
+    </form>
+
+</div>
+
+
+<script>
+
+    const form = document.getElementById("registrationForm");
+
+
+    // Show error message
+    function showError(input, errorElement, message) {
+
+        errorElement.textContent = message;
+        errorElement.style.display = "block";
+
+        if (input) {
+            input.classList.add("input-error");
+            input.classList.remove("input-success");
+        }
+    }
+
+
+    // Remove error message
+    function clearError(input, errorElement) {
+
+        errorElement.textContent = "";
+        errorElement.style.display = "none";
+
+        if (input) {
+            input.classList.remove("input-error");
+            input.classList.add("input-success");
+        }
+    }
+
+
+    // Get radio button value
+    function getGender() {
+
+        const gender = document.querySelector(
+            'input[name="gender"]:checked'
+        );
+
+        return gender ? gender.value : "";
+    }
+
+
+    // Form submit
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let isValid = true;
+
+
+        // Get values
+        const firstName =
+            document.getElementById("firstName");
+
+        const lastName =
+            document.getElementById("lastName");
+
+        const email =
+            document.getElementById("email");
+
+        const phone =
+            document.getElementById("phone");
+
+        const dob =
+            document.getElementById("dob");
+
+        const qualification =
+            document.getElementById("qualification");
+
+        const experience =
+            document.getElementById("experience");
+
+        const skills =
+            document.getElementById("skills");
+
+        const resume =
+            document.getElementById("resume");
+
+        const password =
+            document.getElementById("password");
+
+        const confirmPassword =
+            document.getElementById("confirmPassword");
+
+        const terms =
+            document.getElementById("terms");
+
+
+        // Error elements
+        const firstNameError =
+            document.getElementById("firstNameError");
+
+        const lastNameError =
+            document.getElementById("lastNameError");
+
+        const emailError =
+            document.getElementById("emailError");
+
+        const phoneError =
+            document.getElementById("phoneError");
+
+        const dobError =
+            document.getElementById("dobError");
+
+        const genderError =
+            document.getElementById("genderError");
+
+        const qualificationError =
+            document.getElementById("qualificationError");
+
+        const experienceError =
+            document.getElementById("experienceError");
+
+        const skillsError =
+            document.getElementById("skillsError");
+
+        const resumeError =
+            document.getElementById("resumeError");
+
+        const passwordError =
+            document.getElementById("passwordError");
+
+        const confirmPasswordError =
+            document.getElementById("confirmPasswordError");
+
+        const termsError =
+            document.getElementById("termsError");
+
+
+        // Reset success message
+        document.getElementById(
+            "successMessage"
+        ).style.display = "none";
+
+
+        // First name validation
+        if (firstName.value.trim() === "") {
+
+            showError(
+                firstName,
+                firstNameError,
+                "First name is required."
+            );
+
+            isValid = false;
+
+        } else if (
+            !/^[A-Za-z ]{2,30}$/.test(firstName.value.trim())
+        ) {
+
+            showError(
+                firstName,
+                firstNameError,
+                "Enter a valid first name (2-30 letters)."
+            );
+
+            isValid = false;
+
+        } else {
+
+            clearError(firstName, firstNameError);
+        }
+
+
+        // Last name validation
+        if (lastName.value.trim() === "") {
+
+            showError(
+                lastName,
+                lastNameError,
+                "Last name is required."
+            );
+
+            isValid = false;
+
+        } else if (
+            !/^[A-Za-z ]{2,30}$/.test(lastName.value.trim())
+        ) {
+
+            showError(
+                lastName,
+                lastNameError,
+                "Enter a valid last name."
+            );
+
+            isValid = false;
+
+        } else {
+
+            clearError(lastName, lastNameError);
+        }
+
+
+        // Email validation
+        const emailPattern =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email.value.trim() === "") {
+
+            showError(
+                email,
+                emailError,
+                "Email address is required."
+            );
+
+            isValid = false;
+
+        } else if (!emailPattern.test(email.value.trim())) {
+
+            showError(
+                email,
+                emailError,
+                "Enter a valid email address."
+            );
+
+            isValid = false;
+
+        } else {
+
+            clearError(email, emailError);
+        }
+
+
+        // Phone validation
+        const phonePattern = /^[6-9][0-9]{9}$/;
+
+        if (phone.value.trim() === "") {
+
+            showError(
+                phone,
+                phoneError,
+                "Mobile number is required."
+            );
+
+            isValid = false;
+
+        } else if (!phonePattern.test(phone.value.trim())) {
+
+            showError(
+                phone,
+                phoneError,
+                "Enter a valid 10-digit Indian mobile number."
+            );
+
+            isValid = false;
+
+        } else {
+
+            clearError(phone, phoneError);
+        }
+
+
+        // Date of birth
+        if (dob.value === "") {
+
+            showError(
+                dob,
+                dobError,
+                "Date of birth is required."
+            );
+
+            isValid = false;
+
+        } else {
+
+            const selectedDate = new Date(dob.value);
+            const today = new Date();
+
+            if (selectedDate > today) {
+
+                showError(
+                    dob,
+                    dobError,
+                    "Date of birth cannot be in the future."
+                );
+
+                isValid = false;
+
+            } else {
+
+                clearError(dob, dobError);
+            }
+        }
+
+
+        // Gender validation
+        if (getGender() === "") {
+
+            genderError.textContent =
+                "Please select your gender.";
+
+            genderError.style.display = "block";
+
+            isValid = false;
+
+        } else {
+
+            genderError.textContent = "";
+            genderError.style.display = "none";
+        }
+
+
+        // Qualification
+        if (qualification.value === "") {
+
+            showError(
+                qualification,
+                qualificationError,
+                "Please select your qualification."
+            );
+
+            isValid = false;
+
+        } else {
+
+            clearError(
+                qualification,
+                qualificationError
+            );
+        }
+
+
+        // Experience
+        if (experience.value === "") {
+
+            showError(
+                experience,
+                experienceError,
+                "Please select your experience."
+            );
+
+            isValid = false;
+
+        } else {
+
+            clearError(
+                experience,
+                experienceError
+            );
+        }
+
+
+        // Skills
+        if (skills.value.trim() === "") {
+
+            showError(
+                skills,
+                skillsError,
+                "Please enter your skills."
+            );
+
+            isValid = false;
+
+        } else if (skills.value.trim().length < 3) {
+
+            showError(
+                skills,
+                skillsError,
+                "Please enter at least 3 characters."
+            );
+
+            isValid = false;
+
+        } else {
+
+            clearError(skills, skillsError);
+        }
+
+
+        // Resume validation
+        if (resume.files.length === 0) {
+
+            showError(
+                resume,
+                resumeError,
+                "Please upload your resume."
+            );
+
+            isValid = false;
+
+        } else {
+
+            const file = resume.files[0];
+
+            const allowedTypes = [
+                "application/pdf",
+                "application/msword",
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            ];
+
+            const maxSize = 5 * 1024 * 1024;
+
+            if (!allowedTypes.includes(file.type)) {
+
+                showError(
+                    resume,
+                    resumeError,
+                    "Only PDF, DOC or DOCX files are allowed."
+                );
+
+                isValid = false;
+
+            } else if (file.size > maxSize) {
+
+                showError(
+                    resume,
+                    resumeError,
+                    "Resume size must be less than 5 MB."
+                );
+
+                isValid = false;
+
+            } else {
+
+                clearError(resume, resumeError);
+            }
+        }
+
+
+        // Password validation
+        if (password.value === "") {
+
+            showError(
+                password,
+                passwordError,
+                "Password is required."
+            );
+
+            isValid = false;
+
+        } else if (password.value.length < 8) {
+
+            showError(
+                password,
+                passwordError,
+                "Password must contain at least 8 characters."
+            );
+
+            isValid = false;
+
+        } else if (
+            !/[A-Z]/.test(password.value) ||
+            !/[a-z]/.test(password.value) ||
+            !/[0-9]/.test(password.value)
+        ) {
+
+            showError(
+                password,
+                passwordError,
+                "Password must contain uppercase, lowercase and a number."
+            );
+
+            isValid = false;
+
+        } else {
+
+            clearError(password, passwordError);
+        }
+
+
+        // Confirm password
+        if (confirmPassword.value === "") {
+
+            showError(
+                confirmPassword,
+                confirmPasswordError,
+                "Please confirm your password."
+            );
+
+            isValid = false;
+
+        } else if (
+            confirmPassword.value !== password.value
+        ) {
+
+            showError(
+                confirmPassword,
+                confirmPasswordError,
+                "Passwords do not match."
+            );
+
+            isValid = false;
+
+        } else {
+
+            clearError(
+                confirmPassword,
+                confirmPasswordError
+            );
+        }
+
+
+        // Terms validation
+        if (!terms.checked) {
+
+            termsError.textContent =
+                "You must agree to the Terms and Conditions.";
+
+            termsError.style.display = "block";
+
+            isValid = false;
+
+        } else {
+
+            termsError.textContent = "";
+            termsError.style.display = "none";
+        }
+
+
+        // Final result
+        if (isValid) {
+
+            document.getElementById(
+                "successMessage"
+            ).style.display = "block";
+
+            // In a real application, send the form
+            // data to your backend here.
+
+            console.log("Registration successful!");
+
+            // Optional:
+            // form.reset();
+
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
