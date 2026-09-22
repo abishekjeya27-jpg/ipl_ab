@@ -1,0 +1,126 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<title>User Registration</title> 
+<style> 
+body { 
+font-family: Arial; 
+background-color: #f2f2f2; 
+margin: 0; 
+padding: 40px; 
+} 
+.container { 
+width: 450px; 
+margin: auto; 
+background-color: white; 
+padding: 30px; 
+border-radius: 10px; 
+box-shadow: 0 0 10px gray; 
+} 
+h2 { 
+text-align: center; 
+color: #333; 
+margin-bottom: 25px; 
+} 
+label { 
+display: block; 
+margin-bottom: 6px; 
+font-weight: bold; 
+color: #444; 
+} 
+input[type="text"], 
+input[type="password"], 
+input[type="email"] { 
+width: 100%; 
+padding: 10px; 
+margin-bottom: 18px; 
+border: 1px solid #aaa; 
+border-radius: 5px; 
+box-sizing: border-box; 
+} 
+input:focus { 
+border-color: #333; 
+outline: none; 
+} 
+input[type="submit"] { 
+width: 100%; 
+padding: 12px; 
+background-color: #333; 
+color: white; 
+border: none; 
+border-radius: 5px; 
+font-size: 16px; 
+cursor: pointer; 
+} 
+input[type="submit"]:hover { 
+background-color: #555; 
+} 
+</style> 
+</head> 
+<body> 
+<div class="container"> 
+<h2>User Registration Form</h2> 
+<form action="display.jsp" method="post"> 
+<label>User Name</label> 
+<input type="text" name="username" required> 
+<label>Password</label> 
+<input type="password" name="password" required> 
+<label>Name</label> 
+<input type="text" name="name" required> 
+<label>Credit Card Number</label> 
+<input type="text" name="card" required> 
+<label>Email</label> 
+<input type="email" name="email" required> 
+<label>Phone Number</label> 
+<input type="text" name="phone" required> 
+<input type="submit" value="Submit"> 
+</form> 
+</div> 
+</body> 
+</html> 
+<%@ page language="java" %> 
+<html> 
+<head> 
+<title>Registration Details</title> 
+<style> 
+body { 
+font-family: Arial; 
+background-color: #f2f2f2; 
+padding: 40px; 
+} 
+.box { 
+width: 500px; 
+margin: auto; 
+border-radius: 10px; 
+box-shadow: 0 0 10px gray; 
+} 
+h2 { text-align: center; 
+color: #333; 
+} 
+p { 
+font-size: 16px; 
+padding: 8px; 
+border-bottom: 1px solid #ddd; 
+} 
+b { 
+color: #444; 
+} 
+</style> 
+</head> 
+<body><div class="box"> 
+<h2>Registration Details</h2> 
+<% 
+String username = request.getParameter("username"); 
+String name = request.getParameter("name"); 
+String card = request.getParameter("card"); 
+String email = request.getParameter("email"); 
+String phone = request.getParameter("phone"); 
+%> 
+<p><b>User Name:</b> <%= username %></p> 
+<p><b>Password:</b> <%= password %></p> 
+<p><b>Name:</b> <%= name %></p> 
+<p><b>Credit Card Number:</b> <%= card %></p> 
+<p><b>Email:</b> <%= email %></p> 
+<p><b>Phone Number:</b> <%= phone %></p> 
+</body> 
+</html>
