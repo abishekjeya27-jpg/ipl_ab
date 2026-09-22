@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Ticket Booking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 700px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: auto;
+        }
+        h2 {
+            color: #1a73e8;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .promo {
+            background-color: #e8f0fe;
+            color: #1967d2;
+            padding: 10px;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .search-btn {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .search-btn:hover {
+            background-color: #1557b0;
+        }
+        h3 {
+            color: #333;
+            margin-top: 30px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #fdfdfd;
+        }
+        .book-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .book-btn:hover {
+            background-color: #218838;
+        }
+        .bus-image-container {
+            text-align: center;
+            margin-top: 25px;
+        }
+        .bus-image {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>BOOK YOUR BUS TICKET</h2>
+    <div class="subtitle">WELCOME! EASY & FAST TICKET BOOKING</div>
+    <div class="promo">
+        🚀 Book your bus ticket easily. <i>OFFERS AVAILABLE!</i>
+    </div>
+    <!-- Search Form -->
+    <form>
+        <div class="form-group">
+            <label for="from">From</label>
+            <input type="text" id="from" placeholder="Enter departure city (e.g., Madurai)">
+        </div>
+                <div class="form-group">
+            <label for="to">To</label>
+            <input type="text" id="to" placeholder="Enter destination city (e.g., Chennai)">
+        </div>
+        <button type="button" class="search-btn">Searching for available bus</button>
+    </form>
+    <h3>Available Buses</h3>
+        <table>
+        <tr>
+            <th>Bus Name</th>
+            <th>Time</th>
+            <th>Route / Place</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            <td>Bus 1</td>
+            <td>10:00 AM</td>
+            <td>From: Madurai / To: Chennai</td>
+            <td><button type="button" class="book-btn">BOOK</button></td>
+        </tr>
+        <tr>
+            <td>Bus 2</td>
+            <td>11:00 AM</td>
+            <td>From: Madurai / To: Virudhunagar</td>
+            <td><button type="button" class="book-btn">BOOK</button></td>
+        </tr>
+        <tr>
+            <td>Bus 3</td>
+            <td>12:00 PM</td>
+            <td>From: Madurai / To: Theni</td>
+            <td><button type="button" class="book-btn">BOOK</button></td>
+        </tr>
+    </table>
+
+    <!-- Bus Image Section -->
+    <div class="bus-image-container">
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/16447695963113265771_0" alt="Travel Bus" class="bus-image">
+    </div>
+</div>
+</body>
+</html>
